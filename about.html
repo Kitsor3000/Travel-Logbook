@@ -13,13 +13,52 @@
         body {  
     background: url('images/forest.jpg') no-repeat center center fixed;
     background-size: cover;
-}
+     }
 
+   header {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 290;
+      }
 
-footer {
+      footer {
+    margin-top: 44px;
+    }
+  
 
-    margin-top: 186px;
-}
+    .content-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 800px;
+            margin: 47px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+        }
+
+       
+         .photo-container img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+         
+         .gif-container img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        
+        .text-container {
+            flex: 1;
+            padding: 0 20px;
+        }
 
     </style>  
 
@@ -42,8 +81,25 @@ footer {
     </nav>
 
     <main>
+        <div class="content-container">
 
+        <div class="photo-container">
+            <img src="images/myphoto.jpg" alt="Моє фото"> 
+        </div>
+
+    <div class="text-container">
         <p>Мене звати Ростік. Я студен ХПК групи ПІ221. Моя мета - подорожувати світом і збирати унікальні враження. Я створив цей журнал, щоб поділитися своїми пригодами та надихнути інших на відкриття нових місць.</p>
+    </div>
+
+    <div class="gif-container">
+        <video autoplay loop muted playsinline width="150">
+            <source src="images/doc.mp4" type="video/mp4">
+            Ваш браузер не підтримує відео.
+        </video>
+    </div>
+
+    </div>
+
     </main>
 
     <footer>

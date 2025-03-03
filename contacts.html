@@ -3,26 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакти - Travel-Logbook</title>
+    <title>Чат - Travel-Logbook</title>
     <link rel="stylesheet" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: url('images/forest.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            text-align: center;
+          
+        }
+
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .chat-container {
+            max-width: 530px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .chat-box {
+            height: 280px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: white;
+            color: black;
+            text-align: left;
+            border-radius: 5px;
+        }
+        .chat-box div {
+            padding: 8px;
+            margin: 5px 0;
+            background: #f1f1f1;
+            border-radius: 5px;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        input, textarea, button {
+            width: 97%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        textarea {
+            height: 80px;
+        }
+        button {
+            background: #ffb700;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #e6a100;
+        }
+    </style>
 </head>
 <body>
-    
-    <style>
-
-        body {  
-    background: url('images/forest.jpg') no-repeat center center fixed;
-    background-size: cover;
-}
-
-    </style>  
-
-    <div class="overlay"></div>
     <div id="loading-bar"></div>
-    <header>
-        <h1>Контакти</h1>
-    </header>
+    <div class="overlay"></div>
     <nav>
         <ul>
             <li><a href="index.html">Головна</a></li>
@@ -32,18 +86,62 @@
             <li><a href="contacts.html">Контакти</a></li>
         </ul>
     </nav>
-    <main>
-        <p>Зв'яжіться зі мною:</p>
-        <form>
-            <input type="text" placeholder="Ваше ім'я">
-            <input type="email" placeholder="Ваш email">
-            <textarea placeholder="Ваше повідомлення"></textarea>
-            <button type="submit">Надіслати</button>
-        </form>
-    </main>
-    <footer>
-        <p>&copy; 2025 Travel-Logbook</p>
-    </footer>
-    <script src="scripts/script.js"></script>
+
+    <div class="chat-container">
+        <h1>Чат подорожей</h1>
+        <div class="chat-box" id="chat-box">
+            
+
+        </div>
+        <div class="input-container">
+            <input type="text" id="username" placeholder="Ваше ім'я">
+            <textarea id="message" placeholder="Ваше повідомлення"></textarea>
+            <button onclick="sendMessage()">Надіслати</button>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", loadMessages);
+
+        function sendMessage() {
+            let username = document.getElementById("username").value.trim();
+            let message = document.getElementById("message").value.trim();
+
+            if (username === "" || message === "") {
+                alert("Будь ласка, введіть ім'я та повідомлення.");
+                return;
+            }
+
+            let chatBox = document.getElementById("chat-box");
+            let newMessage = `<div><strong>${username}:</strong> ${message}</div>`;
+
+            chatBox.innerHTML += newMessage;
+            saveMessage(username, message);
+
+            document.getElementById("message").value = ""; 
+            chatBox.scrollTop = chatBox.scrollHeight; 
+        }
+
+        function saveMessage(username, message) {
+            let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
+            chatHistory.push({ username, message });
+            localStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+        }
+
+        function loadMessages() {
+            let chatBox = document.getElementById("chat-box");
+            let chatHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
+
+            chatHistory.forEach(msg => {
+                chatBox.innerHTML += `<div><strong>${msg.username}:</strong> ${msg.message}</div>`;
+            });
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+
 </body>
 </html>
