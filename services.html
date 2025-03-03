@@ -10,21 +10,78 @@
     <style>
 
         body {  
-    background: url('images/forest.jpg') no-repeat center center fixed;
-    background-size: cover;
+            background: url('images/forest.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .service-card {
+            width: 300px;
+            margin: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            color: #ffcc00;
+        }
+
+        .service-card p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        
+
+        footer {
+            margin-top: 50px;
+        }
+
+        .service-card ul {
+    list-style: none; 
+    padding-left: 0; 
+    text-align: left; 
+        }
+
+        .service-card li {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 8px; 
+       }
+
+.service-card li::before {
+    content: "•"; 
+    color: #ffcc00;
+    font-size: 18px; 
+    margin-right: 10px; 
 }
 
-footer {
-    margin-top: 374px;
-    }
-
-    </style>  
-
+    </style>
 </head>
 <body>
     <div id="loading-bar"></div>
     <div class="overlay"></div>
-   
+
     
     <nav>
         <ul>
@@ -35,12 +92,64 @@ footer {
             <li><a href="contacts.html">Контакти</a></li>
         </ul>
     </nav>
+
     <main>
-        <p>Ми допоможемо вам знайти найкращі маршрути для подорожей, запропонуємо поради щодо бюджетних варіантів і ділимося корисними лайфхаками.</p>
+        <h1>Наші Послуги</h1>
+        <div class="services-container">
+
+          
+            <div class="service-card">
+                <h3>Підбір подорожей</h3>
+                <p>Обирайте популярні маршрути та подорожуйте з комфортом.</p>
+                <ul>
+                    <li> 🏔 Гори Карпати</li>
+                    <li> 🏝 Тури на Мальдіви</li>
+                    <li> 🏰 Екскурсії в Європу</li>
+                </ul>
+            </div>
+
+          
+            <div class="service-card">
+                <h3>Бронювання житла</h3>
+                <p>Комфортне житло від наших партнерів:</p>
+                <ul>
+                    <li> 🏨 Готель "Київ"</li>
+                    <li> 🏡 Апартаменти "Sunrise"</li>
+                    <li> 🏕  Хостел "Explorer"</li>
+                </ul>
+              
+            </div>
+
+          
+            <div class="service-card">
+                <h3>Організація турів</h3>
+                <p>Персоналізовані тури та екскурсії:</p>
+                <ul>
+                    <li> 🚌 Групові екскурсії</li>
+                    <li> 👨‍👩‍👦‍👦 Індивідуальні маршрути</li>
+                </ul>
+                
+            </div>
+
+           
+            <div class="service-card">
+                <h3>Оренда транспорту</h3>
+                <p>Вигідна оренда транспорту для подорожей:</p>
+                <ul>
+                    <li>🚗 Автомобілі – 20$/день</li>
+                    <li>🚲 Велосипеди – 5$/день</li>
+                    <li>🛴 Електросамокати 7$/день</li>
+                </ul>
+               
+            </div>
+
+        </div>
     </main>
+
     <footer>
         <p>&copy; 2025 Travel-Logbook</p>
     </footer>
+
     <script src="scripts/script.js"></script>
 </body>
 </html>
