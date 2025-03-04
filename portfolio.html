@@ -13,6 +13,7 @@
         font-family: 'Poppins', sans-serif;
     }
 
+   
     .portfolio-container {
         display: flex;
         flex-direction: column;
@@ -129,7 +130,57 @@ list-style: none;
 padding: 0;
 margin: 0;
 }
-    
+
+@media screen and (max-width: 768px) {
+    .portfolio-container {
+        width: 95%;
+    }
+
+    .portfolio-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .portfolio-item img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .portfolio-description h3 {
+        font-size: 18px;
+    }
+
+    .portfolio-description p {
+        font-size: 14px;
+    }
+
+    .details-button {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+        padding: 15px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav ul li {
+        margin: 5xp 10px ;
+        
+    }
+
+   
+}
+
 </style>
 </head>
 <body>
